@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elysian Digital | Digital Solutions</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+  <!-- AOS Library CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f6fc;
+      color: #333;
+    }
+    nav {
+      position: fixed;
+      width: 100%;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    nav a {
+      color: #e84393;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+      font-size: 1.1rem;
+    }
+    nav a:hover {
+      color: #6C5CE7;
+      transform: scale(1.1);
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1604079628041-9434f6d7b35c') center/cover no-repeat;
+      height: 100vh;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      margin-bottom: 20px;
+    }
+    header p {
+      font-size: 1.7rem;
+      margin-bottom: 30px;
+    }
+    .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 40px; 
+  background: #e84393;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+  text-align: center; 
+}
+
+.btn:hover {
+  background: #ff6b81;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(255, 107, 129, 0.4);
+}
+
+
+    section {
+      padding: 100px 20px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+    h2 {
+      font-size: 3rem;
+      color: #6C5CE7;
+      margin-bottom: 40px;
+      font-weight: bold;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-12px) rotate(-1deg);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+    .card:nth-child(1) {
+      background: #f9a825;
+    }
+    .card:nth-child(2) {
+      background: #ff5722;
+    }
+    .card:nth-child(3) {
+      background: #4caf50;
+    }
+    .card:nth-child(4) {
+      background: #03a9f4;
+    }
+    .card:hover {
+      background: #ff6f61;
+      color: white;
+    }
+    .card img {
+      width: 70px;
+      margin-bottom: 20px;
+    }
+    footer {
+      background: #6C5CE7;
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      margin-top: 80px;
+    }
+    .social-icons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social-icons a {
+      display: inline-block;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .social-icons img {
+      width: 45px;
+      height: 45px;
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+      background-color: #e8b6c4;
+      border-radius: 50%;
+      padding: 8px;
+    }
+    #scrollTop {
+      position: fixed;
+      bottom: 40px;
+      right: 30px;
+      background: #e84393;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 1001;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    form {
+      max-width: 600px;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    form input, form textarea {
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+    }
+    form button {
+      background: #6C5CE7;
+      color: white;
+      padding: 14px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    form button:hover {
+      background: #ff6b81;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#services">Services</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header data-aos="zoom-in">
+    <h1>Elysian Digital</h1>
+    <p>Fast. Reliable. Professional Digital Solutions.</p>
+    <div class="button-container">
+        <a href="#contact" class="btn">Let's Work</a>
+    </div>
+</header>
+
+
+<section id="services" data-aos="fade-up">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Application Services">
+      <h3>Application Services</h3>
+      <p>HELB, KRA, NHIF, NSSF, Good Conduct, Passport, License Renewals, TSC Numbers, and more.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3159/3159066.png" alt="Professional Writing">
+      <h3>Professional Writing</h3>
+      <p>CVs, Resumes, Research Proposals, Academic Assignments, and High-Quality Reports.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1034/1034124.png" alt="Tax and Finance">
+      <h3>Tax and Finance</h3>
+      <p>KRA PINs, Tax Returns Filing, Withholding Tax Assistance, and Insurance Covers.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Software and Design">
+      <h3>Software & Design</h3>
+      <p>Custom Web & Mobile Apps, Graphic Designs (logos, posters, branding).</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills" data-aos="fade-right">
+  <h2>My Skills</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Software Development</h3>
+      <p>Web and Mobile App Development using modern technologies.</p>
+    </div>
+    <div class="card">
+      <h3>Graphic Design</h3>
+      <p>Creative, professional designs for all your branding needs.</p>
+    </div>
+    <div class="card">
+      <h3>Tax Systems Handling</h3>
+      <p>Expertise in handling iTax, KRA systems, insurance applications, and compliance certificates.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-aos="fade-left">
+  <h2>Contact Me</h2>
+  <p>Email: elysiandigital56@gmail.com</p>
+  <p>Phone: +254 705 708 644</p>
+
+  <a href="mailto:yourname@email.com" class="btn">Send an Email</a>
+
+  <div class="social-icons">
+    <a href="https://linkedin.com/in/purity-siaka" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+    </a>
+    <a href="https://github.com/purity-siaka" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+    </a>
+    <a href="https://facebook.com/yourfacebook" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+    </a>
+    <a href="https://instagram.com/elysian_di.gital" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+    </a>
+  </div>
+
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+</section>
+
+<footer>
+  <p>&copy; 2025 Elysian Digital | Designed with ❤️</p>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollTop" onclick="scrollToTop()">↑</button>
+
+<!-- AOS Library JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+
+  // Scroll to top functionality
+  window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      document.getElementById('scrollTop').style.display = "block";
+    } else {
+      document.getElementById('scrollTop').style.display = "none";
+    }
+  }
+
+  function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+
+</body>
+</html>
